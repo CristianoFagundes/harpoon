@@ -49,12 +49,19 @@ namespace Harpoon
 
         virtual void client_session()
             {
+		//iniciar temporiazador
+		//iniciar ccntraffic
+		//computar tempo total
+
                 std::cerr << "ccn client session begin" << std::endl;
                 sleep(10);
                 std::cerr << "ccn client session end" << std::endl;
             }
         virtual void server_session()
             {
+
+		//iniciar ccndelphi
+
                 std::cerr << "ccn server session begin" << std::endl;
                 sleep(10);
                 std::cerr << "ccn server session end" << std::endl;
