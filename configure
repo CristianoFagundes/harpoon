@@ -2161,7 +2161,7 @@ else
     echo "statically building plugins into harpoon executable."
     $as_echo "#define STATIC_PLUGINS 1" >>confdefs.h
 
-    STATIC_PLUGIN_OBJS="plugins/dummy_plugin.o plugins/tcp_plugin.o plugins/infinite_tcp.o plugins/udpcbr_plugin.o plugins/udpblast_plugin.o plugins/udpexpo_plugin.o plugins/udpperiodic_plugin.o"
+    STATIC_PLUGIN_OBJS="plugins/ccn_plugin.o plugins/dummy_plugin.o plugins/tcp_plugin.o plugins/infinite_tcp.o plugins/udpcbr_plugin.o plugins/udpblast_plugin.o plugins/udpexpo_plugin.o plugins/udpperiodic_plugin.o"
 
 fi
 
@@ -3673,7 +3673,7 @@ fi
 
 ac_config_files="$ac_config_files Makefile src/Makefile src/plugins/Makefile doc/Makefile selfconf/Makefile"
 
-ac_config_files="$ac_config_files examples/tcp_client.xml examples/tcp_server.xml examples/tcp_client_ex2.xml examples/tcp_server_ex2.xml examples/udp_client.xml examples/udp_server.xml examples/dummy_plugin.xml examples/inftcp_client.xml examples/inftcp_server.xml"
+ac_config_files="$ac_config_files examples/tcp_client.xml examples/tcp_server.xml examples/tcp_client_ex2.xml examples/tcp_server_ex2.xml examples/udp_client.xml examples/udp_server.xml examples/dummy_plugin.xml examples/ccn_plugin.xml examples/inftcp_client.xml examples/inftcp_server.xml"
 
 ac_config_files="$ac_config_files src/run_harpoon.sh"
 
@@ -4401,6 +4401,7 @@ do
     "examples/udp_client.xml") CONFIG_FILES="$CONFIG_FILES examples/udp_client.xml" ;;
     "examples/udp_server.xml") CONFIG_FILES="$CONFIG_FILES examples/udp_server.xml" ;;
     "examples/dummy_plugin.xml") CONFIG_FILES="$CONFIG_FILES examples/dummy_plugin.xml" ;;
+    "examples/ccn_plugin.xml") CONFIG_FILES="$CONFIG_FILES examples/ccn_plugin.xml" ;;
     "examples/inftcp_client.xml") CONFIG_FILES="$CONFIG_FILES examples/inftcp_client.xml" ;;
     "examples/inftcp_server.xml") CONFIG_FILES="$CONFIG_FILES examples/inftcp_server.xml" ;;
     "src/run_harpoon.sh") CONFIG_FILES="$CONFIG_FILES src/run_harpoon.sh" ;;

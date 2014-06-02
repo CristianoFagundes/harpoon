@@ -58,5 +58,5 @@ distclean:
 	$(MAKE) -C src distclean 
 	$(MAKE) -C doc distclean 
 	$(MAKE) -C selfconf distclean 
-	rm -f config.status config.log examples/cfg_example.xml examples/tcp_client.xml examples/tcp_server.xml examples/tcp_client_ex2.xml examples/tcp_server_ex2.xml examples/udp_client.xml examples/udp_server.xml examples/dummy_plugin.xml examples/inftcp_server.xml examples/inftcp_client.xml Makefile 
+	rm -f config.status config.log examples/cfg_example.xml examples/tcp_client.xml examples/tcp_server.xml examples/tcp_client_ex2.xml examples/tcp_server_ex2.xml examples/udp_client.xml examples/udp_server.xml examples/dummy_plugin.xml examples/ccn_plugin.xml examples/inftcp_server.xml examples/inftcp_client.xml Makefile 
 
