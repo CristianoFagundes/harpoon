@@ -1,5 +1,5 @@
 /* 
- * $Id: dummy_plugin.cc,v 1.5 2005-11-07 03:40:15 jsommers Exp $
+ * $Id: ccn_plugin.cc,v 1.5 2005-11-07 03:40:15 jsommers Exp $
  */
 
 /*
@@ -35,11 +35,11 @@
 
 namespace Harpoon
 {
-    class DummyPlugin : public HarpoonPlugin
+    class ccnPlugin : public HarpoonPlugin
     {
     public:
-        DummyPlugin() : HarpoonPlugin() {}
-        virtual ~DummyPlugin() {}
+        ccnPlugin() : HarpoonPlugin() {}
+        virtual ~ccnPlugin() {}
 
         virtual bool init(HarpoonPluginConfig *hpc, HarpoonLog *hlog)
             {
@@ -49,20 +49,19 @@ namespace Harpoon
 
         virtual void client_session()
             {
-                std::cerr << "dummy client session begin" << std::endl;
-		std::cerr << "teste" << std::endl;
+                std::cerr << "ccn client session begin" << std::endl;
                 sleep(10);
-                std::cerr << "dummy client session end" << std::endl;
+                std::cerr << "ccn client session end" << std::endl;
             }
         virtual void server_session()
             {
-                std::cerr << "dummy server session begin" << std::endl;
+                std::cerr << "ccn server session begin" << std::endl;
                 sleep(10);
-                std::cerr << "dummy server session end" << std::endl;
+                std::cerr << "ccn server session end" << std::endl;
             }
         virtual void shutdown()
             {
-                std::cerr << "dummy shutdown" << std::endl;
+                std::cerr << "ccn shutdown" << std::endl;
                 return;
             }
         virtual void stats(std::ostream &os)
@@ -83,14 +82,14 @@ namespace Harpoon
 extern "C"
 {
 #if STATIC_PLUGINS
-    Harpoon::HarpoonPlugin *dummy_plugin_generator(void)
+    Harpoon::HarpoonPlugin *ccn_plugin_generator(void)
     {
-        return dynamic_cast<Harpoon::HarpoonPlugin*>(new Harpoon::DummyPlugin()); 
+        return dynamic_cast<Harpoon::HarpoonPlugin*>(new Harpoon::ccnPlugin()); 
     }
 #else
-    Harpoon::DummyPlugin *factory_generator(void)
+    Harpoon::ccnPlugin *factory_generator(void)
     {
-        return (new Harpoon::DummyPlugin()); 
+        return (new Harpoon::ccnPlugin()); 
     }
 #endif
 }
