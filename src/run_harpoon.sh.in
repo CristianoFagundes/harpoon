@@ -11,7 +11,7 @@ pluginpath=${harpoonpath}/plugins
 
 os=`uname -s`
 
-if test ${os} == Darwin; then
+if test ${os} = Darwin; then
     export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:${pluginpath};
 else
     export LD_LIBRARY_PATH=${pluginpath};
