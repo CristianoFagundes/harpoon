@@ -50,6 +50,7 @@ namespace Harpoon
         virtual void client_session()
             {
                 std::cerr << "dummy client session begin" << std::endl;
+		std::cerr << "teste" << std::endl;
                 sleep(10);
                 std::cerr << "dummy client session end" << std::endl;
             }
