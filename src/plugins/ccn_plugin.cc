@@ -49,22 +49,51 @@ namespace Harpoon
 
         virtual void client_session()
             {
-		//iniciar temporiazador
-		//iniciar ccntraffic
-		//computar tempo total
+		//./ccntraffic [-h] [-n flying] [-s starting URI index] -f <URI file path>
+		//  -f - specify the location of the URI file
+		//  -n - specify the number of concurrent interests, i.e., the number of queried URIs, default value = 100
+		//  -s - specify the starting point of the requested interest. Default value = 0. With the support of this option,
+		//       multiple machines can share the same URI file but query different portion of the URIs
+		//  -h - print help message and exit
+		//	-n 10 -f <URI file path>
 
-                std::cerr << "ccn client session begin" << std::endl;
-                sleep(10);
-                std::cerr << "ccn client session end" << std::endl;
+		char comando[256];
+		char nameApplication[256] = "ccntraffic";
+
+		int  numeroInterestsConcurrent = 0;
+		char locationURI[256] = "arquivoDelinkCcnx";
+
+		sprintf(comando,"%s -n %d -f %s", nameApplication, numeroInterestsConcurrent, locationURI);
+		system(comando);
             }
+
         virtual void server_session()
             {
+		//./ccndelphi [-hv] [-x freshness_seconds] [-s reply_size_in_bytes] <URI prefix>
+		//	 -h - print this message and exit
+		//	 -v - verbose
+		//	 -x seconds - set FreshnessSeconds
+		//	 -s bytes - set size of replies (default 1024)
 
-		//iniciar ccndelphi
+		FILE *filePipe;
+		char arquivoPathServer[256] = "serverNamePath";
 
-                std::cerr << "ccn server session begin" << std::endl;
-                sleep(10);
-                std::cerr << "ccn server session end" << std::endl;
+		char comando[256];
+		char nameApplication[256] = "ccndelphi";
+
+		int  sizeReply = 0;
+		char prefixURI[256];
+
+
+		if(!(filePipe = (FILE*) popen(arquivoPathServer, "r"))){
+		    perror("Problems with pipe");  	
+		    exit(1);
+		}
+
+		fscanf(filePipe,"%s",&prefixURI);
+
+		sprintf(comando,"%s -s %d %s", nameApplication, sizeReply, prefixURI);
+		system(comando);
             }
         virtual void shutdown()
             {
